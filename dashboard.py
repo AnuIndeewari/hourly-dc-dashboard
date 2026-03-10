@@ -65,9 +65,7 @@ for slot in slots:
         st.rerun()
 
     if file:
-        with open(path,"wb") as f:
-            f.write(file.getbuffer())
-
+        
         uploaded_files[slot]=path
 
 for slot in slots:
@@ -300,7 +298,7 @@ latest_file_df=None
 
 for slot,path in uploaded_files.items():
 
-    df=pd.read_excel(path)
+    df=pd.read_excel(file, engine="openpyxl")
 
     latest_file_df=df
 
